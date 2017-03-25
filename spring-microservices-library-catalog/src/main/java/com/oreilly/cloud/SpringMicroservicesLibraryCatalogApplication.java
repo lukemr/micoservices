@@ -2,6 +2,7 @@ package com.oreilly.cloud;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SpringMicroservicesLibraryCatalogApplication {
 
-	private int size = Book.getBooks().size();
+	@Value("${catalog.size}")
+	private int size;// = Book.getBooks().size();
 
 	@RequestMapping("/catalog")
 	@CrossOrigin
